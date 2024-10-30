@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+//criacao da entidade atendente com seus atributos
 @Entity
 @Table(name = "atendente")
 @Getter

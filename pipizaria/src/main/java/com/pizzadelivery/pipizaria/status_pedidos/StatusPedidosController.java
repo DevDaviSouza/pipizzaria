@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//criacao de um controller junto com sua rota base
 @RequestMapping("/status")
 @RestController
 public class StatusPedidosController {
@@ -14,6 +15,7 @@ public class StatusPedidosController {
     @Autowired
     StatusPedidosRepository statusPedidosRepository;
 
+    //metodo para cadastrar os status
     @PostMapping()
     public ResponseEntity<StatusPedidos> cadastrarNovoStatus(@RequestBody StatusPedidosRecordDto statusPedidosRecordDto) {
         var status = new StatusPedidos();
@@ -23,6 +25,7 @@ public class StatusPedidosController {
         return ResponseEntity.ok(statusPedidosRepository.save(status));
     }
 
+    // metodo que lista todos os status para fins de consulta
     @GetMapping()
     public ResponseEntity<List<StatusPedidos>> listarTodosStatus() {
         List<StatusPedidos> status = statusPedidosRepository.findAll();

@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+//criacao da entidade produto com seus atributos
 @Entity
 @Table(name = "produto")
 @Getter

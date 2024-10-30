@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+//criacao de um controller junto com sua rota base
 @RequestMapping("/atendente")
 @RestController
 public class AtendenteController {
@@ -18,6 +19,7 @@ public class AtendenteController {
     @Autowired
     AtendenteRepository atendenteRepository;
 
+    //metodo para cadastrar novo atendente
     @PostMapping()
     public ResponseEntity<Atendente> cadatrarAtendente(@RequestBody @Valid AtendenteRecordDto atendenteRecordDto) {
         var atendente = new Atendente();
@@ -27,11 +29,13 @@ public class AtendenteController {
         return ResponseEntity.status(HttpStatus.OK).body(atendenteRepository.save(atendente));
     }
 
+    //metodo para listar todos atendentes
     @GetMapping()
     public ResponseEntity<List<Atendente>> listarTodosAtendentes() {
         return ResponseEntity.status(HttpStatus.OK).body(atendenteRepository.findAll());
     }
 
+    //metodo para buscar um atendente utilizando seu ID
     @GetMapping("/{id}")
     public ResponseEntity<Object> buscarAtendentePorId(@PathVariable(value = "id")UUID id) {
         Optional<Atendente> atendente0 = atendenteRepository.findById(id);
@@ -40,6 +44,7 @@ public class AtendenteController {
 
     }
 
+    // metodo para alterar um atendente com base em seu ID
     @PutMapping("/{id}")
     public ResponseEntity<Object> alterarAtendente(@PathVariable(value = "id") UUID id, @RequestBody AtendenteRecordDto atendenteRecordDto) {
         Optional<Atendente> atendente0 = atendenteRepository.findById(id);
@@ -54,6 +59,7 @@ public class AtendenteController {
         return ResponseEntity.status(HttpStatus.OK).body(atendenteRepository.save(atendenteSave));
     }
 
+    //metodo para deletar um atendente com base em seu ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletarAtendente(@PathVariable(value = "id") UUID id) {
         Optional<Atendente> atendente0 = atendenteRepository.findById(id);

@@ -11,6 +11,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+//criacao da entidade opiniao com seus atributos e construtor
 @Entity
 @Table(name = "opiniao")
 @Getter

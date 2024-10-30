@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+//criacao da entidade statusPedidos com seus atributos
 @Entity
 @Table(name = "status_pedidos")
 @Getter

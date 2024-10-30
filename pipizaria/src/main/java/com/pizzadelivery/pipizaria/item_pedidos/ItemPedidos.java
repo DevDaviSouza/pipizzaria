@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+//criacao da entidade itemPedidos com seus atributos e construtores
 @Entity
 @Table(name = "item_pedidos")
 @Getter

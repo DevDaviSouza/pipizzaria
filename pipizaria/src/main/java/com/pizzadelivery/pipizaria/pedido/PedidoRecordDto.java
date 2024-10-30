@@ -7,6 +7,5 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public record PedidoRecordDto(@NotNull int numeroPedido, @NotNull LocalDateTime dataPedido, @NotNull UUID status, @NotNull UUID idCliente, @NotNull UUID idAtendente) {
-
-}
+//classe record para transferência de dados
+public record PedidoRecordDto(@NotNull int numeroPedido, @NotNull LocalDateTime dataPedido, @NotNull UUID status, @NotNull UUID idCliente, @NotNull UUID idAtendente) {}

@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+//criacao de um controller junto com sua rota base
 @RequestMapping("/pedidos")
 @RestController
 public class PedidoController {
@@ -64,7 +65,7 @@ public class PedidoController {
 
     // listar pedidos filtrando por cliente
     @GetMapping("/{clienteId}")
-    public ResponseEntity<List<PedidoData>> listarPedidosDeUmCliente(@PathVariable Cliente clienteId) {
+    public ResponseEntity<List<PedidoData>> listarPedidosPorCliente(@PathVariable Cliente clienteId) {
        List<PedidoData> pedidoLista = pedidoService.listarPedidosPorCliente(clienteId);
 
        return ResponseEntity.ok(pedidoLista);
@@ -92,6 +93,7 @@ public class PedidoController {
         return ResponseEntity.status(HttpStatus.OK).body("Pedido excluido com sucesso");
     }
 
+    //aceitar pedido(esse metodo altera o pedido adicionando o ID do atendente que o aceitou)
     @PutMapping("/{id}/aceitar")
     public ResponseEntity<Object> confirmarPedido(@PathVariable UUID id, @RequestBody PedidoRecordDto pedidoRecordDto) {
         Optional<Pedido> pedido0 = pedidoRepository.findById(id);
@@ -115,6 +117,7 @@ public class PedidoController {
         return ResponseEntity.notFound().build();
     }
 
+    //metodo que altera o status do pedido(modificação de status para melhor acompanhamento das demandas do estabelecimento)
     @PutMapping("/{id}/alterarStatus")
     public ResponseEntity<Object> alterarStatusPedido(@PathVariable UUID id, @RequestBody PedidoRecordDto pedidoRecordDto) {
         Optional<Pedido> pedido0 = pedidoRepository.findById(id);

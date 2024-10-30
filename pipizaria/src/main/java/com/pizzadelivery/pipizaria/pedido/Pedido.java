@@ -12,6 +12,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+//criacao da entidade pedido com seus atributos e construtores
 @Entity
 @Table(name = "pedido")
 @Getter
